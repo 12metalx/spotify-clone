@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import Home from "./modules/Home"
+import Menu from "./modules/Menu"
+import Search from "./modules/Search"
+import { useState } from 'react'
+import Reproductor from "./modules/Reproductor"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+interface Song{
+    previewURL: string;
+    name: string;
+    albumName: string;
 }
 
-export default App;
+export const App = () => {
+    const [currentSong, setCurrentSong] = useState<Song>({previewURL:'',name:'',albumName:''})
+    return (
+        <Router>
+            <Menu/>
+            <Reproductor song={currentSong} />
+            <Switch>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
+                <Route path="/search">
+                    <Search setCurrentSong={setCurrentSong}/>
+                    
+                </Route>
+            </Switch>
+            
+        </Router>
+    )
+}
+
+export default App
