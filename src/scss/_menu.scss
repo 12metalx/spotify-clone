@@ -1,0 +1,17 @@
+#menu{
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00adb5;
+    width: 100%;
+    a{
+        padding: 0.5rem;
+        text-decoration: none;
+    }
+    a:hover{
+        transition: 500ms;
+      background: #393e46;
+    }
+}

@@ -1,0 +1,35 @@
+main{
+    background: #aad8d3;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 0 1rem 7rem 1rem;
+    gap: 1rem;
+
+    section{
+        background: #eeeeee;
+        padding: 1rem ;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        h3{
+            padding-bottom: 1rem;
+        }
+        button{
+            color: #eeeeee;
+            grid-row: 3;
+            padding: 0.3rem 1rem 0.3rem 1rem ;
+            border-radius: 0.3rem;
+            text-align: center;
+            width: 5rem;
+            transition: 500ms;
+            background: #00adb5;
+            border:none;    
+        }
+        button:hover{
+            transition: 500ms;
+            background: #393e46;
+        }
+        
+    }
+}

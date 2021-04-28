@@ -31,7 +31,7 @@ export const Search = ({setCurrentSong}:Props) => {
 
     return (
         <>
-        <form onSubmit={search}>
+        <form onSubmit={search} id="search">
             
             <label>Buscar</label>
             <input type="text" placeholder="Nirvana" ref={queryRef}/>

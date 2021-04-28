@@ -15,8 +15,7 @@ export const Song = ({song,setCurrentSong}:Props) => {
    }
     return (
         <section>
-            <h3>{song.name}</h3>
-            <h3>{song.albumName}</h3>
+            <h3>{song.name} - {song.albumName}</h3>
             <button onClick={handleClick}>Play</button>
         </section>
 
