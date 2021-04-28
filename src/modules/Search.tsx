@@ -7,9 +7,11 @@ interface Song{
 }
 interface Props{
     setCurrentSong: (song:Song) => void;
+    addFavorite: (song:Song) => void;
+    deleteFavorite: (song:Song) => void;
 }
 
-export const Search = ({setCurrentSong}:Props) => {
+export const Search = ({setCurrentSong,addFavorite,deleteFavorite}:Props) => {
     const queryRef = useRef<HTMLInputElement>(document.createElement("input"))
     const [songs, setSongs] = useState<Song[]>([])
     const search = async (e:React.FormEvent<HTMLFormElement>) => {
@@ -38,8 +40,12 @@ export const Search = ({setCurrentSong}:Props) => {
             <button>Buscar</button>
             
         </form>
-        <main>
-            <SongList songs={songs} setCurrentSong={setCurrentSong}/>
+        <main id="lsearch">
+            <SongList songs={songs} 
+            setCurrentSong={setCurrentSong} 
+            addFavorite={addFavorite} 
+            deleteFavorite={deleteFavorite}
+            isFavorites={false}/>
         </main>
         </>
     )

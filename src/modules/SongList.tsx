@@ -8,13 +8,20 @@ interface Song{
 interface Props{
     songs: Song[];
     setCurrentSong: (song:Song) => void;
+    addFavorite: (song:Song) => void;
+    deleteFavorite: (song:Song) => void;
+    isFavorites: boolean;
 }
-export const SongList = ({songs,setCurrentSong}:Props) => {
+export const SongList = ({songs,setCurrentSong,addFavorite,deleteFavorite,isFavorites}:Props) => {
     return (
         <>
             {songs.map((song:Song)=>{
                 return(
-                    <Song song={song} setCurrentSong={setCurrentSong}/>
+                    <Song song={song} 
+                    setCurrentSong={setCurrentSong} 
+                    addFavorite={addFavorite} 
+                    deleteFavorite={deleteFavorite}
+                    isFavorites={isFavorites}/>
                 )
             })}
         </>
