@@ -1,4 +1,4 @@
-import {useRef,useState} from "react";
+import {useEffect, useRef,useState} from "react";
 import SongList from "./SongList";
 interface Song{
     previewURL: string;
@@ -11,9 +11,12 @@ interface Props{
     deleteFavorite: (song:Song) => void;
 }
 
-export const Search = ({setCurrentSong,addFavorite,deleteFavorite}:Props) => {
+ const Search = ({setCurrentSong,addFavorite,deleteFavorite}:Props) => {
+    const jsonSearch = JSON.parse(localStorage.getItem('search') || "{}")
     const queryRef = useRef<HTMLInputElement>(document.createElement("input"))
-    const [songs, setSongs] = useState<Song[]>([])
+    const [songs, setSongs] = useState<Song[]>(jsonSearch)
+
+    
     const search = async (e:React.FormEvent<HTMLFormElement>) => {
 		setSongs([]);
         e.preventDefault()
@@ -29,7 +32,13 @@ export const Search = ({setCurrentSong,addFavorite,deleteFavorite}:Props) => {
         
         
 	};
-
+    useEffect(() => {
+        
+        return () => {
+            localStorage.setItem('search',JSON.stringify(songs))
+            
+        }
+    }, [songs])
 
     return (
         <>

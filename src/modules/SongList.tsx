@@ -14,9 +14,10 @@ interface Props{
     isFavorites: boolean;
 }
 export const SongList = ({songs,setCurrentSong,addFavorite,deleteFavorite,isFavorites}:Props) => {
+    
     return (
         <>
-            {songs.map((song:Song)=>{
+            {songs.length ? songs.map((song:Song)=>{
                 return(
                     <SongCard key={song.previewURL}
                     song={song} 
@@ -26,7 +27,8 @@ export const SongList = ({songs,setCurrentSong,addFavorite,deleteFavorite,isFavo
                     isFavorites={isFavorites}/>
                     
                 )
-            })}
+            }) : <p></p>}
+            
         </>
     )
 }
