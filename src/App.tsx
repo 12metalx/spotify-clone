@@ -17,7 +17,7 @@ export const App = () => {
     return (
         <Router>
             <Menu/>
-            <Reproductor song={currentSong} />
+            
             <Switch>
                 <Route exact path="/">
                     <Home/>
@@ -27,7 +27,7 @@ export const App = () => {
                     
                 </Route>
             </Switch>
-            
+            <Reproductor song={currentSong} />
         </Router>
     )
 }
