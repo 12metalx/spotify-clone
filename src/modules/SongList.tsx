@@ -1,4 +1,5 @@
-import { Song } from "./Song"
+import SongCard from "./SongCard"
+
 
 interface Song{
     previewURL: string;
@@ -17,11 +18,13 @@ export const SongList = ({songs,setCurrentSong,addFavorite,deleteFavorite,isFavo
         <>
             {songs.map((song:Song)=>{
                 return(
-                    <Song song={song} 
+                    <SongCard key={song.previewURL}
+                    song={song} 
                     setCurrentSong={setCurrentSong} 
                     addFavorite={addFavorite} 
                     deleteFavorite={deleteFavorite}
                     isFavorites={isFavorites}/>
+                    
                 )
             })}
         </>

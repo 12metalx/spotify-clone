@@ -12,7 +12,7 @@ interface Props{
     isFavorites: boolean;
 }
 
-export const Song = ({song,setCurrentSong,addFavorite,deleteFavorite,isFavorites}:Props) => {
+const SongCard = ({song,setCurrentSong,addFavorite,deleteFavorite,isFavorites}:Props) => {
    const handlePlay = () =>{
         setCurrentSong(song)
    }
@@ -32,4 +32,4 @@ export const Song = ({song,setCurrentSong,addFavorite,deleteFavorite,isFavorites
 
     )
 }
-export default Song
+export default SongCard
